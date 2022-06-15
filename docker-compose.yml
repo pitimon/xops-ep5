@@ -3,16 +3,16 @@ services:
   bionic:
     image: kasmweb/ubuntu-bionic-desktop:1.10.0-rolling
     shm_size: '512mb'
+
     volumes:
-      - code:/home/kasm-user
+      - home_volume:/home/kasm-user
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-    networks:
-      - webproxy
+
     environment:
       VNC_PW: '${PASSWORD}'
-##    ports:
-##      - 6901
+    ports:
+      - 6901
     logging:
       driver: json-file
     deploy:
@@ -24,19 +24,7 @@ services:
         limits:
           cpus: '4.0'
           memory: 4G
-      labels:
-        - traefik.enable=true
-        - traefik.docker.network=webproxy
-        - traefik.http.routers.${APPNAME}-https.rule=Host(`${APPNAME}.${DOMAIN}`)
-        - traefik.http.routers.${APPNAME}-https.entrypoints=websecure
-        - traefik.http.routers.${APPNAME}-https.tls.certresolver=default
-        - traefik.http.services.${APPNAME}.loadbalancer.server.port=6901
-        - traefik.http.serversTransports.${APPNAME}.servername=bionic
-        - traefik.http.serversTransports.${APPNAME}.insecure=true
       
 volumes:
-  code:
+  home_volume:
 
-networks:
-  webproxy:
-    external: true
