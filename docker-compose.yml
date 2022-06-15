@@ -31,6 +31,8 @@ services:
         - traefik.http.routers.${APPNAME}-https.entrypoints=websecure
         - traefik.http.routers.${APPNAME}-https.tls.certresolver=default
         - traefik.http.services.${APPNAME}.loadbalancer.server.port=6901
+        - traefik.http.serversTransports.${APPNAME}.servername=bionic
+        - traefik.http.serversTransports.${APPNAME}.insecure=true
       
 volumes:
   code:
