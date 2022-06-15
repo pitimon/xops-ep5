@@ -1,0 +1,40 @@
+version: '3.3'
+services:
+  kali:
+    image: kasmweb/ubuntu-bionic-desktop:1.10.0-rolling
+    shm_size: '512mb'
+    volumes:
+      - code:/home/kasm-user
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+#    networks:
+#      - webproxy
+    environment:
+      VNC_PW: '${PASSWORD}'
+    ports:
+      - 6901
+    logging:
+      driver: json-file
+    deploy:
+      replicas: 1
+      resources:
+        reservations:
+          cpus: '0.2'
+          memory: 512M
+        limits:
+          cpus: '4.0'
+          memory: 4G
+#      labels:
+#        - traefik.enable=true
+#        - traefik.docker.network=webproxy
+#        - traefik.http.routers.${APPNAME}-https.rule=Host(`${APPNAME}.${DOMAIN}`)
+#        - traefik.http.routers.${APPNAME}-https.entrypoints=websecure
+#        - traefik.http.routers.${APPNAME}-https.tls.certresolver=default
+#        - traefik.http.services.${APPNAME}.loadbalancer.server.port=6901
+      
+volumes:
+  code:
+
+#networks:
+#  webproxy:
+#    external: true
