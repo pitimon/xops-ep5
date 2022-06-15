@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  kali:
+  bionic:
     image: kasmweb/ubuntu-bionic-desktop:1.10.0-rolling
     shm_size: '512mb'
     volumes:
