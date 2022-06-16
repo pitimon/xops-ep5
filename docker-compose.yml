@@ -3,7 +3,8 @@ services:
   kasm_web:
 #    image: kasmweb/firefox:1.10.0-rolling
 #    image: kasmweb/chrome:1.10.0-rolling
-    image: kasmweb/postman:1.10.0-rolling
+#    image: kasmweb/postman:1.10.0-rolling
+    image: ipvsix/opensuse:latest
     shm_size: '512mb'
     environment:
       VNC_PW: '${PASSWORD}'
