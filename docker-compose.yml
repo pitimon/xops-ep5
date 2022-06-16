@@ -1,14 +1,13 @@
 version: '3.3'
+
 services:
   bionic:
     image: kasmweb/ubuntu-bionic-desktop:1.10.0-rolling
     shm_size: '512mb'
-
     volumes:
       - home_volume:/home/kasm-user
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-
     environment:
       VNC_PW: '${PASSWORD}'
     ports:
