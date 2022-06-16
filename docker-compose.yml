@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   bionic:
-    image: kasmweb/ubuntu-bionic-desktop:1.10.0-rolling
+    image: kasmweb/manager:develop
     shm_size: '512mb'
     volumes:
       - /etc/timezone:/etc/timezone:ro
@@ -18,7 +18,7 @@ services:
       resources:
         reservations:
           cpus: '0.2'
-          memory: 512M
+          memory: 128M
         limits:
           cpus: '4.0'
           memory: 4G
