@@ -2,6 +2,7 @@
  
 ## Ref:
 - https://hub.docker.com/u/kasmweb
+- https://kasmweb.com/docs/latest/guide/custom_images.html
 - https://github.com/kasmtech/workspaces-images
 - https://hub.docker.com/r/kasmweb/firefox
 
