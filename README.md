@@ -14,3 +14,11 @@ The container is now accessible via a browser : https://<IP>:6901
 
 - User : kasm_user
 - Password: password
+
+### webhook using
+This example shows how to trigger the webhook using redeploy:
+```sh
+<form action="https://portainer:9443/api/webhooks/638e6967-ef77-4906-8af8-236800621360" method="post">
+  Redeploy with latest image of same tag <input type="submit" />
+</form>
+```
