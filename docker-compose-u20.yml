@@ -7,7 +7,6 @@ services:
     image: ipvsix/ubuntu-desktop:jun22
     shm_size: '512mb'
     volumes:
-      - nfs-kasm-home:/save_data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     environment:
@@ -27,8 +26,6 @@ services:
           memory: 4G
 
 
-volumes:
-  kasm-user-home:
-    external: true
+
 
 # PASSWORD=password1234$
