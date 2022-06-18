@@ -4,7 +4,7 @@ services:
     image: ipvsix/ubuntu-desktop:jun22
     shm_size: '512mb'
     volumes:
-      - nfs-kasm-home:/home/ubuntu/kasm_web
+#      - nfs-kasm-home:/home/ubuntu/kasm_web
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     environment:
