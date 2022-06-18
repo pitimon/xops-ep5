@@ -1,3 +1,6 @@
+# P.Itarun xOps-CPE 
+# kasmweb ubuntu desktop 20.04
+# user: kasm_user
 version: '3.3'
 services:
   kasm_web:
@@ -9,8 +12,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       VNC_PW: '${PASSWORD}'
-#    ports:
-#      - 6901
+    ports:
+      - 6901
     logging:
       driver: json-file
     deploy:
@@ -22,18 +25,10 @@ services:
         limits:
           cpus: '4.0'
           memory: 4G
-      labels:
-        - traefik.enable=true
-        - traefik.docker.network=webproxy
-        - traefik.http.routers.${APPNAME}-https.rule=Host(`${APPNAME}.${DOMAIN}`)
-        - traefik.http.routers.${APPNAME}-https.entrypoints=websecure
-        - traefik.http.routers.${APPNAME}-https.tls.certresolver=default
-        - traefik.http.services.${APPNAME}.loadbalancer.server.port=6901
+
 
 volumes:
   kasm-user-home:
     external: true
 
 # PASSWORD=password1234$
-# APPNAME=node0
-# DOMAIN=cpe.en.rmutt.ac.th
